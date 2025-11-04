@@ -19,6 +19,7 @@ public class EquationString{
      * @return returns an {@link EquationString} equivalent of the equation
      * @throws EquationException if the equation contains an illegal character
      */
+
    public static EquationString fromString(String equation) throws EquationException{
        if (equation == null || equation.isBlank()) {
            throw new EquationException("Equation can not be blank or null");
