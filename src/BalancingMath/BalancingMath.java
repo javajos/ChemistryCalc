@@ -1,10 +1,10 @@
 package BalancingMath;
 
 @SuppressWarnings("unused")
-public class Math {
-  
+public class BalancingMath {
+
   public static RemainderDivisionOut eDivL(int dividend, int divisor){
-    return new RemainderDivisionOut(Math.floor(dividend / divisor), dividend % divisor);
+    return new RemainderDivisionOut(dividend / divisor, dividend % divisor);
   }
 
   public static int gcd(int numOne, int numTwo){
