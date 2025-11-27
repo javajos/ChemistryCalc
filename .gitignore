@@ -31,3 +31,4 @@ bin/
 
 ### Test Files ###
 /src/ChemicalEquation/Test.java
+/src/Balancer/TestBalancer.java
