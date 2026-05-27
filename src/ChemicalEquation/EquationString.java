@@ -31,7 +31,6 @@ public class EquationString{
        if (matcher.find()){
            throw new EquationException("Equation contains one or more illegal Characters");
        }
-
        else return new EquationString(equation);
    }
 

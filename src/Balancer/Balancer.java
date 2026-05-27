@@ -31,20 +31,20 @@ public class Balancer {
         if (isBalanced()){
             return equation;
         }
-        HashMap<String, Character> letters = assignVariables();
+        HashMap<Character, String> letters = assignVariables();
         return null;
     }
 
 
-    private HashMap<String, Character> assignVariables() {
-        HashMap<String, Character> variables = new HashMap<>();
+    public HashMap<Character,String> assignVariables() {
+        HashMap<Character, String> variables = new HashMap<>();
         char i = (int) 'A';
-        for (String compound : equation.products) {
-            variables.put(compound, i);
+        for (String compound : equation.reactants) {
+            variables.put(i, compound);
             i++;
         }
-        for (String compound : equation.reactants) {
-            variables.put(compound, i);
+        for (String compound : equation.products) {
+            variables.put(i, compound);
             i++;
         }
         return variables;
@@ -54,5 +54,14 @@ public class Balancer {
         return null;
     }
 
+    public HashMap<Character, HashMap<String, Integer>> getAlgCounts(){
+        HashMap<Character, String> variables = assignVariables();
+        HashMap<Character,HashMap<String,Integer>> elementCounts = new HashMap<>();
+        for (HashMap.Entry<Character,String> entry:variables.entrySet()){
+            HashMap<String, Integer> parsed = EquationParser.getCount(new String[]{entry.getValue()});
+            elementCounts.put(entry.getKey(),parsed);
+        }
+        return elementCounts;
+    }
 
 }
